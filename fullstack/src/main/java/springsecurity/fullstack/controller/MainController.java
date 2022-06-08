@@ -29,8 +29,8 @@ public class MainController {
     }
 
     @GetMapping("/employees")
-    public String employeesPage() {
-        return "employees";
+        public String employeesPage() {
+            return "employees";
     }
 
     @GetMapping("/equipment")
