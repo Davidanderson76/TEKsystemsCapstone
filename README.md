@@ -29,9 +29,9 @@
 - As an employer/store manager, I want to be able to view all employees based on which store location they currently work at.
 
 ## Tools/Technologies
-
-- React, React-Router-DOM, Redux, Tailwind CSS,
 - Java Springboot, Hibernate, JPA,
+- Thymeleaf, Spring Security, Bootstrap
+- CSS, JS, Lombok, 
 
 ## Installation Instructions
 
