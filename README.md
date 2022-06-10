@@ -7,7 +7,8 @@
 - [Tools/Technologies](#Tools/Technologies)
 - [Installation Instruction](#Installation-Instructions)
 - [Usage Information](#Usage-Information)
-- [Contributions](#Contributions)
+- [Future Features](#Future-Features)
+- [Tables Layout](#Tables-Layout)
 - [Testing](#Testing)
 - [Obstacles](#Obstacles)
 - [Questions?](#Questions?)
@@ -37,7 +38,9 @@
 
 ## Usage Information
 
-### Tables layout
+## Future Features
+
+### Tables Layout
 
 <br><img width="488" alt="cmsTables" src="https://user-images.githubusercontent.com/42220778/173092504-856d7496-ced5-49bf-b5e1-e9896a4e9a97.png">
 
