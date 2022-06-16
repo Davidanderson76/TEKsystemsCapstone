@@ -1,3 +1,6 @@
 #user{
 text-decoration: underline;
 }
+#username{
+text-transform: uppercase;
+}

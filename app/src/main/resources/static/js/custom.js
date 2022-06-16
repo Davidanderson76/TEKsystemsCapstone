@@ -1,3 +1,3 @@
 function showAlert() {
-    alert("You're logged in!");
+    alert("Successful user login!");
 }

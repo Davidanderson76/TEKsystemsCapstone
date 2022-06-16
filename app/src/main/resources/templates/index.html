@@ -29,7 +29,7 @@
 <body class="container">
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Coffee Management</a>
+        <a class="navbar-brand" th:href="@{/}">Coffee Management App ☕</a>
 
         <button
                 class="navbar-toggler"
@@ -45,11 +45,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/}"
-                    >Home</a
-                    >
-                </li>
 
                 <li class="nav-item dropdown">
                     <a
@@ -63,6 +58,15 @@
                         Menu
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link active text-center" aria-current="page" th:href="@{/}"
+                            >Home</a
+                            >
+                        </li>
+
+                        <hr class="dropdown-divider"/>
+
                         <li sec:authorize="isAuthenticated()" class="nav-item">
                             <a class="nav-link text-center" th:href="@{/stores}"
                             >Stores</a
@@ -117,19 +121,29 @@
             The #1 tool for staying up to date and organized with your business!
         </p>
         <hr class="my-4"/>
-        <p id="user">
+        <p class="text-center" id="user">
             Welcome
-            <span  class="font-italic" sec:authentication="principal.username"
+            <span id="username" class="font-italic " sec:authentication="principal.username"
             >User</span
             >
         </p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button"
-            >Learn more</a
-            >
-        </p>
-        <br>
-        <button class="btn btn-danger btn-lg" type="button" th:onclick="showAlert()">Show Alert</button>
+
+        <div class="row">
+            <div class="col">
+                <p class="lead text-center">
+                    <a class="btn btn-primary btn-md text-center" href="#" role="button"
+                    >Learn more</a
+                    >
+                </p>
+            </div>
+            <div class="col">
+                <p class="lead text-center">
+                    <a class="btn btn-danger btn-md text-center" href="#" role="button" th:onclick="showAlert()">
+                        Login Status
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -138,5 +152,6 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"
 ></script>
-<script type="text/javascript" th:src="@{/js/custom.js}"></script></body>
+<script type="text/javascript" th:src="@{/js/custom.js}"></script>
+</body>
 </html>
