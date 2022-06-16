@@ -15,4 +15,24 @@ public class MainController {
     public String home() {
         return "index";
     }
+
+    @GetMapping("/stores")
+    public String storesPage() {
+        return "stores";
+    }
+
+    @GetMapping("/employees")
+    public String employeesPage() {
+        return "employees";
+    }
+
+    @GetMapping("/equipment")
+    public String equipmentPage() {
+        return "equipment";
+    }
+
+    @GetMapping("/vehicles")
+    public String vehiclesPage() {
+        return "vehicles";
+    }
 }
