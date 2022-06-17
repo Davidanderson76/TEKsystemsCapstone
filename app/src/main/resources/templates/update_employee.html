@@ -22,7 +22,7 @@
             href="../META-INF/resources/icons8-coffee-64.png"
             type="image/x-icon"
     />
-    <title>Add Employee </title>
+    <title>Update Employee</title>
 </head>
 
 <body class="container">
@@ -113,21 +113,31 @@
 <br/>
 
 <div class="container">
-    <h1>Employee Management System</h1>
+    <h2 class="display-4 text-center">Update Employee</h2>
     <hr class="my-4"/>
-    <h2> Save Employee</h2>
 
-    <form th:action="@{/api/saveEmployee}" th:object="${employee}" method="POST">
-        <input type="text" th:field="*{firstName}" placeholder="Employee First Name" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{lastName}" placeholder="Employee Last Name" class="form-control mb-4 col-4">
+    <form th:action="@{/api/employee/{id} (id=${employee.id})}" th:object="${employee}" method="POST">
 
-        <input type="text" th:field="*{email}" placeholder="Employee Email" class="form-control mb-4 col-4">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label for="firstName"> First Name </label> :
+        <input autofocus="autofocus" id="firstName" name="firstName" type="text" th:field="*{firstName}"
+               class="form-control mb-4 col-4">
+
+        <label for="lastName"> Last Name </label> :
+        <input autofocus="autofocus" id="lastName" name="lastName" type="text" th:field="*{lastName}"
+               class="form-control mb-4 col-4">
+
+        <label for="email"> Email </label> :
+        <input autofocus="autofocus" id="email" name="email" type="text" th:field="*{email}"
+               class="form-control mb-4 col-4">
+
 
         <div class="row">
             <div class="col">
 
-                <button type="submit" class="btn btn-primary btn-md text-center">Save Employee</button>
+                <button type="submit" class="btn btn-primary btn-md text-center">Update Employee</button>
 
             </div>
         </div>
@@ -144,6 +154,8 @@
         </div>
 
     </form>
+    <hr class="my-4"/>
+
 
 </div>
 

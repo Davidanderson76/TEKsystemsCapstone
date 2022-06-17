@@ -15,15 +15,15 @@ public class EmployeeEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private boolean active;
+//    private boolean active;
 
-    @ElementCollection(targetClass = RolesEnum.class)
-    @CollectionTable(
-            name = "employee_roles",
-            joinColumns = @JoinColumn(name = "employeeid")
-    )
-    @Column(name = "EnumId")
-    private final Set<RolesEnum> enumSet= new HashSet<>();
+//    @ElementCollection(targetClass = RolesEnum.class)
+//    @CollectionTable(
+//            name = "employee_roles",
+//            joinColumns = @JoinColumn(name = "employeeid")
+//    )
+//    @Column(name = "EnumId")
+//    private final Set<RolesEnum> enumSet= new HashSet<>();
 
 //    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //    @JoinTable(
@@ -40,13 +40,13 @@ public class EmployeeEntity {
 
 
 
-    public EmployeeEntity(String firstName, String lastName, String email, boolean active) {
+    public EmployeeEntity(String firstName, String lastName, String email) {
         // ALL ARGS CONSTRUCTOR
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.active = active;
+//        this.active = active;
     }
 
     public Long getId() {
@@ -77,17 +77,17 @@ public class EmployeeEntity {
         this.email = email;
     }
 
-    public boolean isActive() {
-        return active;
-    }
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
+//    }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public Set<RolesEnum> getEnumSet() {
-        return enumSet;
-    }
+//    public Set<RolesEnum> getEnumSet() {
+//        return enumSet;
+//    }
 
     //    public Collection<PositionEntity> getPositions() {
 //        return positions;

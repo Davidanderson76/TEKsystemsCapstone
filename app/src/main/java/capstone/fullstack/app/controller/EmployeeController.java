@@ -36,4 +36,29 @@ public class EmployeeController {
         return "redirect:/api/employees";
     }
 
+    @GetMapping("/showFormForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        // get employee from the service
+        EmployeeEntity employeeEntity = employeeService.getEmployeeById(id);
+        // set employee as a model attribute to pre-populate the form
+        model.addAttribute("employee", employeeEntity);
+        return "update_employee";
+    }
+
+    @PostMapping("/employee/{id}")
+    public String updateEmployee(@PathVariable Long id, @ModelAttribute("employee") EmployeeEntity employeeEntity, Model model) {
+        // get student from database by id
+        EmployeeEntity existingEmployee = employeeService.getEmployeeById(id);
+
+        existingEmployee.setFirstName(employeeEntity.getFirstName());
+        existingEmployee.setLastName(employeeEntity.getLastName());
+        existingEmployee.setEmail(employeeEntity.getEmail());
+
+        // save updated student object
+        employeeService.updateEmployee(existingEmployee);
+        return "redirect:/api/employees";
+    }
+
+
 }

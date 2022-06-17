@@ -10,4 +10,7 @@ public interface EmployeeService {
 
     void saveEmployee(EmployeeEntity employeeEntity);
 
+    EmployeeEntity getEmployeeById(Long id);
+
+    EmployeeEntity updateEmployee(EmployeeEntity employeeEntity);
 }

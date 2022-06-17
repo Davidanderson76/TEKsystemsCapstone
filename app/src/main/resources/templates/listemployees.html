@@ -10,7 +10,7 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous"
     />
-    <link th:href="@{/css/custom.css}" rel="stylesheet"/>
+    <link th:href="@{/css/table.css}" rel="stylesheet"/>
     <!-- CSS only -->
     <link
             rel="shortcut icon"
@@ -113,51 +113,58 @@
 <br/>
 
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <h2 class="display-4 text-center">Employees Page</h2>
+<div>
+    <!--    <div class="jumbotron jumbotron-fluid">-->
+    <!--        <h2 class="display-4 text-center">Employees Page</h2>-->
 
-        <hr class="my-4"/>
-        <div class="row">
-            <div class="col-sm">
-                <p class="text-center">
-                    Logged in as:
-                    <span class="font-italic" sec:authentication="principal.username"
-                    >User</span
-                    >
-                </p>
-            </div>
-        </div>
-    </div>
+    <!--        <hr class="my-4"/>-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-sm">-->
+    <!--                <p class="text-center">-->
+    <!--                    Logged in as:-->
+    <!--                    <span class="font-italic" sec:authentication="principal.username"-->
+    <!--                    >User</span-->
+    <!--                    >-->
+    <!--                </p>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 
     <div>
         <p class="display-6 text-center">Employees List</p>
+        <p class="text-center">
+            Logged in as:
+            <span class="font-italic" sec:authentication="principal.username"
+            >User</span
+            >
+        </p>
         <p class="lead text-left">
             <a class="btn btn-primary btn-md text-center" th:href="@{/api/newEmployeeForm}" role="button"
-            >Add Employee</a
+            >Add New Employee</a
             >
         </p>
         <hr class="my-6"/>
 
+
         <table class="table table-striped">
             <thead scope="row">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
+            <tr class="text-center">
+                <th scope="col">NAME</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">EDIT</th>
             </tr>
-            <!--            <tr th:if="${#lists.isEmpty(employees)}">-->
-            <!--                <td class="text-center" colspan="7">No Records found.</td>-->
-            <!--            </tr>-->
+
             </thead>
             <tbody class="text-center">
             <tr class="text-center" scope="row" th:each="employee : ${listEmployees}">
-                <td th:text="${employee.id}"></td>
                 <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
                 <td th:text="${employee.email}"></td>
+                <td class="text-center"><a th:href="@{/api/showFormForUpdate/{id}(id=${employee.id})}"
+                                           class="btn btn-primary btn-md text-center">🔃 Update </a></td>
             </tr>
             </tbody>
         </table>
+
 
     </div>
 </div>
