@@ -2,6 +2,8 @@ package capstone.fullstack.app.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -15,18 +17,28 @@ public class EmployeeEntity {
     private String email;
     private boolean active;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "employee_positions",
-            joinColumns = @JoinColumn(
-                    name = "employee_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "position_id", referencedColumnName = "id"))
-    private Collection<PositionEntity> positions;
+    @ElementCollection(targetClass = RolesEnum.class)
+    @CollectionTable(
+            name = "employee_roles",
+            joinColumns = @JoinColumn(name = "employeeid")
+    )
+    @Column(name = "EnumId")
+    private final Set<RolesEnum> enumSet= new HashSet<>();
+
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "employee_positions",
+//            joinColumns = @JoinColumn(
+//                    name = "employee_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(
+//                    name = "position_id", referencedColumnName = "id"))
+//    private Collection<PositionEntity> positions;
 
     public EmployeeEntity() {
         // NO ARGS CONSTRUCTOR
     }
+
+
 
     public EmployeeEntity(String firstName, String lastName, String email, boolean active) {
         // ALL ARGS CONSTRUCTOR
@@ -73,11 +85,15 @@ public class EmployeeEntity {
         this.active = active;
     }
 
-    public Collection<PositionEntity> getPositions() {
-        return positions;
+    public Set<RolesEnum> getEnumSet() {
+        return enumSet;
     }
 
-    public void setPositions(Collection<PositionEntity> positions) {
-        this.positions = positions;
-    }
+    //    public Collection<PositionEntity> getPositions() {
+//        return positions;
+//    }
+//
+//    public void setPositions(Collection<PositionEntity> positions) {
+//        this.positions = positions;
+//    }
 }

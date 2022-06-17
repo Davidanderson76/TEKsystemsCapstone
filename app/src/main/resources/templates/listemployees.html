@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -113,45 +112,61 @@
 <br/>
 <br/>
 
+
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <h2 class="display-4">Coffee Franchise Management System</h2>
+        <h2 class="display-4 text-center">Employees Page</h2>
 
-        <p class="lead">
-            The #1 tool for staying up to date and organized with your business!
-        </p>
         <hr class="my-4"/>
-        <p class="text-center" id="user">
-            Welcome
-            <span id="username" class="font-italic " sec:authentication="principal.username"
-            >User</span
-            >
-        </p>
-        <br>
         <div class="row">
-            <div class="col">
-                <p class="lead text-center">
-                    <a class="btn btn-primary btn-md text-center" href="#" role="button"
-                    >Learn more</a
+            <div class="col-sm">
+                <p class="text-center">
+                    Logged in as:
+                    <span class="font-italic" sec:authentication="principal.username"
+                    >User</span
                     >
-                </p>
-            </div>
-            <div class="col">
-                <p class="lead text-center">
-                    <a class="btn btn-danger btn-md text-center" href="#" role="button" th:onclick="showAlert()">
-                        Login Status
-                    </a>
                 </p>
             </div>
         </div>
     </div>
+
+    <div>
+        <p class="display-6 text-center">Employees List</p>
+        <p class="lead text-left">
+            <a class="btn btn-primary btn-md text-center" th:href="@{/api/newEmployeeForm}" role="button"
+            >Add Employee</a
+            >
+        </p>
+        <hr class="my-6"/>
+
+        <table class="table table-striped">
+            <thead scope="row">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+            <!--            <tr th:if="${#lists.isEmpty(employees)}">-->
+            <!--                <td class="text-center" colspan="7">No Records found.</td>-->
+            <!--            </tr>-->
+            </thead>
+            <tbody class="text-center">
+            <tr class="text-center" scope="row" th:each="employee : ${listEmployees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
+                <td th:text="${employee.email}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 </div>
+
 
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"
-></script>
-<script type="text/javascript" th:src="@{/js/custom.js}"></script>
+        crossorigin="anonymous">
+</script>
 </body>
 </html>
