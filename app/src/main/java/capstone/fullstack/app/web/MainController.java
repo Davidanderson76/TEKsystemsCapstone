@@ -15,11 +15,7 @@ public class MainController {
     public String home() {
         return "index";
     }
-
-    @GetMapping("/stores")
-    public String storesPage() {
-        return "stores";
-    }
+    
 
     @GetMapping("/employees")
     public String employeesPage() {

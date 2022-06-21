@@ -54,9 +54,15 @@ public class EmployeeController {
         existingEmployee.setFirstName(employeeEntity.getFirstName());
         existingEmployee.setLastName(employeeEntity.getLastName());
         existingEmployee.setEmail(employeeEntity.getEmail());
-
         // save updated student object
         employeeService.updateEmployee(existingEmployee);
+        return "redirect:/api/employees";
+    }
+
+    @GetMapping("/deleteEmployee/{id}")
+    public String deleteEmployee(@PathVariable(value = "id") Long id){
+        // call delete from service
+        this.employeeService.deleteEmployeeById(id);
         return "redirect:/api/employees";
     }
 

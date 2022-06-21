@@ -25,7 +25,7 @@
             href="../META-INF/resources/icons8-coffee-64.png"
             type="image/x-icon"
     />
-    <title>Home</title>
+    <title>Stores Page</title>
 </head>
 
 <body class="container">
@@ -70,7 +70,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/stores}"
+                            <a class="nav-link text-center" th:href="@{/api/stores}"
                             >Stores</a
                             >
                         </li>
@@ -78,7 +78,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/employees}"
+                            <a class="nav-link text-center" th:href="@{/api/employees}"
                             >Employees</a
                             >
                         </li>
@@ -132,6 +132,26 @@
             </div>
         </div>
     </div>
+
+    <div align="center">
+        <h1>Store List</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Store Name</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="store : ${listStores}">
+                <td th:text="${store.name}"></td>
+                <td th:text="${store.address}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 </div>
 
 <script

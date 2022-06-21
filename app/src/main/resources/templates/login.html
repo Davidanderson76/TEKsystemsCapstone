@@ -51,7 +51,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/stores}"
+                            <a class="nav-link text-center" th:href="@{/api/stores}"
                             >Stores</a
                             >
                         </li>
@@ -59,7 +59,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/employees}"
+                            <a class="nav-link text-center" th:href="@{/api/employees}"
                             >Employees</a
                             >
                         </li>

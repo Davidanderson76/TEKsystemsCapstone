@@ -67,7 +67,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/stores}"
+                            <a class="nav-link text-center" th:href="@{/api/stores}"
                             >Stores</a
                             >
                         </li>
@@ -114,59 +114,45 @@
 
 
 <div>
-    <!--    <div class="jumbotron jumbotron-fluid">-->
-    <!--        <h2 class="display-4 text-center">Employees Page</h2>-->
-
-    <!--        <hr class="my-4"/>-->
-    <!--        <div class="row">-->
-    <!--            <div class="col-sm">-->
-    <!--                <p class="text-center">-->
-    <!--                    Logged in as:-->
-    <!--                    <span class="font-italic" sec:authentication="principal.username"-->
-    <!--                    >User</span-->
-    <!--                    >-->
-    <!--                </p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <div>
-        <p class="display-6 text-center">Employees List</p>
-        <p class="text-center">
-            Logged in as:
-            <span class="font-italic" sec:authentication="principal.username"
-            >User</span
-            >
-        </p>
-        <p class="lead text-left">
-            <a class="btn btn-primary btn-md text-center" th:href="@{/api/newEmployeeForm}" role="button"
-            >Add New Employee</a
-            >
-        </p>
-        <hr class="my-6"/>
+    <p class="display-6 text-center">Employees List</p>
+    <p class="text-center">
+        Logged in as:
+        <span class="font-italic" sec:authentication="principal.username"
+        >User</span
+        >
+    </p>
+    <p class="lead text-left">
+        <a class="btn btn-primary btn-md text-center" th:href="@{/api/newEmployeeForm}" role="button"
+        >Add New Employee</a
+        >
+    </p>
+    <hr class="my-6"/>
 
 
-        <table class="table table-striped">
-            <thead scope="row">
-            <tr class="text-center">
-                <th scope="col">NAME</th>
-                <th scope="col">EMAIL</th>
-                <th scope="col">EDIT</th>
-            </tr>
+    <table class="table table-striped">
+        <thead scope="row">
+        <tr class="text-center">
+            <th scope="col">NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">EDIT</th>
+        </tr>
 
-            </thead>
-            <tbody class="text-center">
-            <tr class="text-center" scope="row" th:each="employee : ${listEmployees}">
-                <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
-                <td th:text="${employee.email}"></td>
-                <td class="text-center"><a th:href="@{/api/showFormForUpdate/{id}(id=${employee.id})}"
-                                           class="btn btn-primary btn-md text-center">🔃 Update </a></td>
-            </tr>
-            </tbody>
-        </table>
+        </thead>
+        <tbody class="text-center">
+        <tr class="text-center" scope="row" th:each="employee : ${listEmployees}">
+            <td th:text="${employee.firstName + ' ' + employee.lastName}"></td>
+            <td th:text="${employee.email}" class="small"></td>
+            <td class="text-center">
+                <a th:href="@{/api/showFormForUpdate/{id}(id=${employee.id})}"
+                   class="btn btn-primary btn-sm text-center">🔃 Update </a>
+                <a th:href="@{/api/deleteEmployee/{id}(id=${employee.id})}"
+                   class="btn btn-danger btn-sm text-center">❌ Delete </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 
-    </div>
 </div>
 
 

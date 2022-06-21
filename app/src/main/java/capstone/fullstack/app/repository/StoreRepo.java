@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface StoreRepo extends JpaRepository<StoreEntity, Long> {
 
-    List<StoreEntity> findByName(String name);
 }
