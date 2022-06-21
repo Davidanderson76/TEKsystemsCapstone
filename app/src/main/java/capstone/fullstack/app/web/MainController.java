@@ -15,12 +15,7 @@ public class MainController {
     public String home() {
         return "index";
     }
-    
 
-    @GetMapping("/employees")
-    public String employeesPage() {
-        return "employees";
-    }
 
     @GetMapping("/equipment")
     public String equipmentPage() {
@@ -30,5 +25,10 @@ public class MainController {
     @GetMapping("/vehicles")
     public String vehiclesPage() {
         return "vehicles";
+    }
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
     }
 }

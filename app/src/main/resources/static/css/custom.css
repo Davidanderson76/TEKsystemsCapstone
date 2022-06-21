@@ -4,3 +4,13 @@ text-decoration: underline;
 #username{
 text-transform: uppercase;
 }
+mark {
+  background-color: pink;
+  color: black;
+}
+.logo{
+display:flex;
+background-size: 100% 100%;
+justify-content: center;
+align-items: center;
+}

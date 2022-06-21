@@ -60,7 +60,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee/{id}")
-    public String deleteEmployee(@PathVariable(value = "id") Long id){
+    public String deleteEmployee(@PathVariable(value = "id") Long id) {
         // call delete from service
         this.employeeService.deleteEmployeeById(id);
         return "redirect:/api/employees";
