@@ -17,10 +17,7 @@ public class MainController {
     }
 
 
-    @GetMapping("/equipment")
-    public String equipmentPage() {
-        return "equipment";
-    }
+
 
     @GetMapping("/vehicles")
     public String vehiclesPage() {

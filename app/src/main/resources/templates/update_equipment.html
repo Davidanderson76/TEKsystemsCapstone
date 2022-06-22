@@ -22,7 +22,7 @@
             href="../META-INF/resources/icons8-coffee-64.png"
             type="image/x-icon"
     />
-    <title>Add Employee </title>
+    <title>Update Equipment</title>
 </head>
 
 <body class="container">
@@ -121,21 +121,34 @@
 <br/>
 
 <div class="container">
-    <h1>Employee Management System</h1>
+    <h2 class="display-4 text-center">Update Item</h2>
     <hr class="my-4"/>
-    <h2> Save Employee</h2>
 
-    <form th:action="@{/api/saveEmployee}" th:object="${employee}" method="POST">
-        <input type="text" th:field="*{firstName}" placeholder="Employee First Name" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{lastName}" placeholder="Employee Last Name" class="form-control mb-4 col-4">
+    <form th:action="@{/api/equipment/{id} (id=${equipment.id})}" th:object="${equipment}" method="POST">
 
-        <input type="text" th:field="*{email}" placeholder="Employee Email" class="form-control mb-4 col-4">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label for="name"> Item Name </label> :
+        <input autofocus="autofocus" id="name" name="name" type="text" th:field="*{name}"
+               class="form-control mb-4 col-4">
+
+        <label for="cost"> Cost </label> :
+        <input autofocus="autofocus" id="cost" name="cost" type="number" step=".01" th:field="*{cost}"
+               class="form-control mb-4 col-4">
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" th:field="*{status}" value="" id="flexCheckChecked" checked>
+            <label id="status" name="status" class="form-check-label" for="flexCheckChecked">
+                Status: Working?
+            </label>
+        </div>
+        <br>
 
         <div class="row">
             <div class="col">
 
-                <button type="submit" class="btn btn-primary btn-md text-center">Save Employee</button>
+                <button type="submit" class="btn btn-primary btn-md text-center">Update Equipment</button>
 
             </div>
         </div>
@@ -143,8 +156,8 @@
         <div class="row">
             <div class="col">
 
-                <button type="submit" th:href="@{/api/employees}" class="btn btn-danger btn-md text-center">Back To
-                    Employee Page
+                <button type="submit" th:href="@{/api/equipment}" class="btn btn-warning btn-md text-center">Back To
+                    Equipment Page
                 </button>
 
             </div>
@@ -152,6 +165,8 @@
         </div>
 
     </form>
+    <hr class="my-4"/>
+
 
 </div>
 

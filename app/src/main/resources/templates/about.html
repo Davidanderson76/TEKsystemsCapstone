@@ -84,7 +84,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/equipment}"
+                            <a class="nav-link text-center" th:href="@{/api/equipment}"
                             >Equipment</a
                             >
                         </li>
@@ -94,6 +94,14 @@
                         <li sec:authorize="isAuthenticated()" class="nav-item">
                             <a class="nav-link text-center" th:href="@{/vehicles}"
                             >Vehicles</a
+                            >
+                        </li>
+
+                        <hr class="dropdown-divider"/>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-center" th:href="@{/about}"
+                            >About</a
                             >
                         </li>
                     </ul>

@@ -25,7 +25,7 @@
             href="../META-INF/resources/icons8-coffee-64.png"
             type="image/x-icon"
     />
-    <title>Home</title>
+    <title>Equipment Page</title>
 </head>
 
 <body class="container">
@@ -86,7 +86,7 @@
                         <hr class="dropdown-divider"/>
 
                         <li sec:authorize="isAuthenticated()" class="nav-item">
-                            <a class="nav-link text-center" th:href="@{/equipment}"
+                            <a class="nav-link text-center" th:href="@{/api/equipment}"
                             >Equipment</a
                             >
                         </li>
@@ -96,6 +96,14 @@
                         <li sec:authorize="isAuthenticated()" class="nav-item">
                             <a class="nav-link text-center" th:href="@{/vehicles}"
                             >Vehicles</a
+                            >
+                        </li>
+
+                        <hr class="dropdown-divider"/>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-center" th:href="@{/about}"
+                            >About</a
                             >
                         </li>
                     </ul>
@@ -116,22 +124,50 @@
 <br/>
 
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <h2 class="display-4 text-center">Equipment Page</h2>
+<div>
+    <p class="display-6 text-center">Equipment List</p>
+    <p class="text-center">
+        Logged in as:
+        <span class="font-italic" sec:authentication="principal.username"
+        >User</span
+        >
+    </p>
+    <p class="lead text-left">
+        <a class="btn btn-primary btn-md text-center" th:href="@{/api/showNewEquipmentForm}" role="button"
+        >Add Equipment</a
+        >
+    </p>
+    <hr class="my-6"/>
 
-        <hr class="my-4"/>
-        <div class="row">
-            <div class="col-sm">
-                <p class="text-center">
-                    Logged in as:
-                    <span class="font-italic" sec:authentication="principal.username"
-                    >User</span
-                    >
-                </p>
-            </div>
-        </div>
-    </div>
+
+    <h1>Equipment List</h1>
+    <table class="table table-striped">
+        <thead scope="row">
+        <tr class="text-center">
+            <th scope="col">Equipment Name</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        <tr class="text-center" scope="row" th:each="item : ${listEquipment}">
+            <td class="small" th:text="${item.name}"></td>
+            <td class="small" th:text="${item.cost}"></td>
+            <td class="small">
+                <span th:if="${item.status == true}">Working</span>
+                <span th:if="${item.status == false}">Needs Repairs</span>
+            </td>
+            <td class="text-center small">
+                <a th:href="@{/api/formForUpdateEquipment/{id}(id=${item.id})}"
+                   class="btn btn-primary btn-sm text-center">🔃 Update </a>
+                <a th:href="@{/api/deleteEquipment/{id}(id=${item.id})}"
+                   class="btn btn-danger btn-sm text-center">❌ Delete </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
 </div>
 
 <script

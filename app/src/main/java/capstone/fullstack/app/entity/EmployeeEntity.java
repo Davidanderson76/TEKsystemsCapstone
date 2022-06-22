@@ -15,38 +15,31 @@ public class EmployeeEntity {
     private String firstName;
     private String lastName;
     private String email;
-//    private boolean active;
 
-//    @ElementCollection(targetClass = RolesEnum.class)
-//    @CollectionTable(
-//            name = "employee_roles",
-//            joinColumns = @JoinColumn(name = "employeeid")
-//    )
-//    @Column(name = "EnumId")
-//    private final Set<RolesEnum> enumSet= new HashSet<>();
-
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //    @JoinTable(
-//            name = "employee_positions",
+//            name = "employees_stores",
 //            joinColumns = @JoinColumn(
 //                    name = "employee_id", referencedColumnName = "id"),
 //            inverseJoinColumns = @JoinColumn(
-//                    name = "position_id", referencedColumnName = "id"))
-//    private Collection<PositionEntity> positions;
+//                    name = "store_id", referencedColumnName = "id"))
+//
+//    private Collection<StoreEntity> stores;
 
     public EmployeeEntity() {
         // NO ARGS CONSTRUCTOR
     }
 
 
-
-    public EmployeeEntity(String firstName, String lastName, String email) {
+    public EmployeeEntity(String firstName, String lastName, String email
+//            , Collection<StoreEntity> stores
+    ) {
         // ALL ARGS CONSTRUCTOR
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-//        this.active = active;
+//        this.stores = stores;
     }
 
     public Long getId() {
@@ -77,23 +70,11 @@ public class EmployeeEntity {
         this.email = email;
     }
 
-//    public boolean isActive() {
-//        return active;
+//    public Collection<StoreEntity> getStores() {
+//        return stores;
 //    }
 //
-//    public void setActive(boolean active) {
-//        this.active = active;
-//    }
-
-//    public Set<RolesEnum> getEnumSet() {
-//        return enumSet;
-//    }
-
-    //    public Collection<PositionEntity> getPositions() {
-//        return positions;
-//    }
-//
-//    public void setPositions(Collection<PositionEntity> positions) {
-//        this.positions = positions;
+//    public void setStores(Collection<StoreEntity> stores) {
+//        this.stores = stores;
 //    }
 }
