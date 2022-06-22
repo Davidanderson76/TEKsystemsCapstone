@@ -40,9 +40,14 @@
 
 ## Future Features
 
+### Wireframe
+
+<img width="665" alt="Screenshot 2022-06-22 150340" src="https://user-images.githubusercontent.com/42220778/175126609-0b7b4832-4ee0-4e86-8543-627031ca7ad5.png">
+
 ### Tables Layout
 
 <br><img width="488" alt="cmsTables" src="https://user-images.githubusercontent.com/42220778/173092504-856d7496-ced5-49bf-b5e1-e9896a4e9a97.png">
+
 
 
 
