@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -10,7 +10,19 @@
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous"
     />
-    <title>Login</title>
+    <link th:href="@{/css/custom.css}" rel="stylesheet"/>
+    <!-- CSS only -->
+    <link
+            rel="shortcut icon"
+            href="../META-INF/resources/favicon.ico"
+            type="image/x-icon"
+    />
+    <link
+            rel="icon"
+            href="../META-INF/resources/icons8-coffee-64.png"
+            type="image/x-icon"
+    />
+    <title>Add Vehicle</title>
 </head>
 
 <body class="container">
@@ -107,64 +119,57 @@
 </nav>
 <br/>
 <br/>
-<!-- Create HTML registration form -->
+
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
+    <h1>Store Management System</h1>
+    <hr class="my-4"/>
+    <h2>New Vehicle</h2>
 
-            <div>
-                <img class="img-fluid" th:src="@{/img/Coffee-Manager-logos_transparent.png}" alt="logo"/>
+    <form th:action="@{/api/saveVehicle}" th:object="${vehicle}" method="POST">
+
+        <label> Vehicle Make </label> :
+        <input type="text" th:field="*{make}" placeholder="Vehicle Make" class="form-control mb-4 col-4">
+
+        <label> Vehicle Model </label> :
+        <input type="text" th:field="*{model}" placeholder="Vehicle Model" class="form-control mb-4 col-4">
+
+        <label> Vehicle Color </label> :
+        <input type="text" th:field="*{color}" placeholder="Vehicle Color" class="form-control mb-4 col-4">
+
+        <label> Vehicle year </label> :
+        <input type="number" th:field="*{year}" placeholder="Vehicle Year" class="form-control mb-4 col-4">
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" th:field="*{insured}" value="" id="flexCheckChecked"
+                   checked>
+            <label id="status" name="status" class="form-check-label" for="flexCheckChecked">
+                Insured?
+            </label>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <button type="submit" class="btn btn-primary btn-md text-center">Save Vehicle</button>
+
             </div>
         </div>
-        <div class="col-sm">
+        <br>
+        <div class="row">
+            <div class="col">
 
-            <!-- success message -->
-            <div th:if="${param.success}">
-                <div class="alert alert-info">Registration Successful!</div>
+                <button type="submit" th:href="@{/api/vehicles}" class="btn btn-warning btn-md text-center">Back To
+                    Vehicle Page
+                </button>
+
             </div>
 
-            <h2 class="display-4 text-center">Registration</h2>
-            <hr/>
-
-            <div class="row">
-
-                <form th:action="@{/registration}" method="post" th:object="${user}">
-                    <div class="form-group">
-                        <label class="control-label" for="firstName"> First Name </label>
-                        <input id="firstName" class="form-control" th:field="*{firstName}"
-                               required autofocus="autofocus"/>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label" for="lastName"> Last Name </label> <input
-                            id="lastName" class="form-control" th:field="*{lastName}"
-                            required autofocus="autofocus"/>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label" for="email"> Email </label> <input
-                            id="email" class="form-control" th:field="*{email}" required
-                            autofocus="autofocus"/>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label" for="password"> Password </label> <input
-                            id="password" class="form-control" type="password"
-                            th:field="*{password}" required autofocus="autofocus"/>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Register</button>
-                        <span>Already registered? <a href="/" th:href="@{/login}">Login
-								here</a></span>
-                    </div>
-                </form>
-            </div>
-            <br>
-            <hr/>
         </div>
-    </div>
+
+    </form>
+
 </div>
+
 
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

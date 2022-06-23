@@ -9,24 +9,25 @@ public class VehicleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
+
+    private String make;
     private int year;
     private String color;
-    private int driverRating;
+
     private boolean insured;
-    private int driverId;
+
 
     public VehicleEntity() {
         // NO ARGS CONSTRUCTOR
     }
 
-    public VehicleEntity(String model, int year, String color, int driverRating, boolean insured, int driverId) {
+    public VehicleEntity(String model, String make, int year, String color, boolean insured) {
         // ALL ARGS CONSTRUCTOR
         this.model = model;
+        this.make = make;
         this.year = year;
         this.color = color;
-        this.driverRating = driverRating;
         this.insured = insured;
-        this.driverId = driverId;
     }
 
     public Long getId() {
@@ -57,14 +58,6 @@ public class VehicleEntity {
         this.color = color;
     }
 
-    public int getDriverRating() {
-        return driverRating;
-    }
-
-    public void setDriverRating(int driverRating) {
-        this.driverRating = driverRating;
-    }
-
     public boolean isInsured() {
         return insured;
     }
@@ -73,11 +66,11 @@ public class VehicleEntity {
         this.insured = insured;
     }
 
-    public int getDriverId() {
-        return driverId;
+    public String getMake() {
+        return make;
     }
 
-    public void setDriverId(int driverId) {
-        this.driverId = driverId;
+    public void setMake(String make) {
+        this.make = make;
     }
 }

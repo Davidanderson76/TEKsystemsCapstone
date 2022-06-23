@@ -16,14 +16,6 @@ public class MainController {
         return "index";
     }
 
-
-
-
-    @GetMapping("/vehicles")
-    public String vehiclesPage() {
-        return "vehicles";
-    }
-
     @GetMapping("/about")
     public String aboutPage() {
         return "about";
