@@ -1,9 +1,6 @@
 package capstone.fullstack.app.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "employees")

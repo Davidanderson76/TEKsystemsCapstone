@@ -152,7 +152,7 @@
         <tbody class="text-center">
         <tr class="text-center" scope="row" th:each="item : ${listEquipment}">
             <td class="small" th:text="${item.name}"></td>
-            <td class="small" th:text="${item.cost}"></td>
+            <td class="small" th:text="|$${item.cost}|"></td>
             <td class="small">
                 <span th:if="${item.status == true}">Working</span>
                 <span th:if="${item.status == false}">Needs Repairs</span>

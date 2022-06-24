@@ -56,7 +56,6 @@ public class EmployeeController {
     public String updateEmployee(@PathVariable Long id, @ModelAttribute("employee") EmployeeEntity employeeEntity, Model model) {
         // get student from database by id
         EmployeeEntity existingEmployee = employeeService.getEmployeeById(id);
-
         existingEmployee.setFirstName(employeeEntity.getFirstName());
         existingEmployee.setLastName(employeeEntity.getLastName());
         existingEmployee.setEmail(employeeEntity.getEmail());
