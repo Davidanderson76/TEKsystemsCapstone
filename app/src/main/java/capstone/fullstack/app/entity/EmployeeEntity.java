@@ -39,6 +39,10 @@ public class EmployeeEntity {
 //        this.stores = stores;
     }
 
+    public EmployeeEntity(Long id, String david, String anderson, String s) {
+        // for testing purposes
+    }
+
     public Long getId() {
         return id;
     }
