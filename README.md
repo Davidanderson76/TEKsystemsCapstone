@@ -15,6 +15,9 @@
 
 - Here is an application built and designed for employers of a coffee shop company. This application allows all managers to login and view, add, and edit information about the companies stores, employees, equipment, and vehicles.
 
+![coffee4](https://user-images.githubusercontent.com/42220778/175827452-fc830c03-99d3-4581-b9b4-c53e230be50e.jpg)
+
+
 <img width="146" alt="login page" src="https://user-images.githubusercontent.com/42220778/175827379-76f5b74f-55b7-42c2-b316-257f6b74808d.png">
 
 ## User Stories
