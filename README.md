@@ -5,8 +5,6 @@
 - [Description](#Description)
 - [User Stories](#User-Stories)
 - [Tools/Technologies](#Tools/Technologies)
-- [Installation Instruction](#Installation-Instructions)
-- [Usage Information](#Usage-Information)
 - [Future Features](#Future-Features)
 - [Tables Layout](#Tables-Layout)
 - [Testing](#Testing)
@@ -30,15 +28,23 @@
 - As an employer/store manager, I want to be able to view all employees based on which store location they currently work at.
 
 ## Tools/Technologies
-- Java Springboot, Hibernate, JPA,
-- Thymeleaf, Spring Security, Bootstrap
-- CSS, JS, Lombok, 
-
-## Installation Instructions
-
-## Usage Information
+Thymeleaf, MySQL, Spring Data JPA, Junit5, Hibernate, Lombok
+Java, HTML, JS, CSS, Spring Boot, Spring Security
 
 ## Future Features
+
+- Design of app overhaul
+
+- Search Functionality for all tables and pages
+
+- Employee login to see schedules
+
+- Make app more applicable to other company types. 
+
+- Upload Menu to be edited and viewed for revisions and edits.
+
+- Add budget tracking page/ application
+
 
 ### Wireframe
 
@@ -48,13 +54,15 @@
 
 <br><img width="488" alt="cmsTables" src="https://user-images.githubusercontent.com/42220778/173092504-856d7496-ced5-49bf-b5e1-e9896a4e9a97.png">
 
-
-
-
-
 ## Testing
 
+Testing done on services implementation with Springboot testing and Junit.
+
 ## Obstacles
+- Establishing relationships between employees table and stores table
+
+- Learning Thymeleaf
+
 
 ## Questions?
 
