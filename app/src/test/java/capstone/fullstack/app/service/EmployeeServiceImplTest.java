@@ -1,6 +1,7 @@
 package capstone.fullstack.app.service;
 
 import capstone.fullstack.app.entity.EmployeeEntity;
+import capstone.fullstack.app.exceptions.ResourceNotFoundException;
 import capstone.fullstack.app.repository.EmployeeRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -72,10 +73,20 @@ class EmployeeServiceImplTest {
         Assertions.assertTrue(returnedEmployee.isPresent(), "Employee should  be found");
     }
 
-//    @Test
-//    @DisplayName("Test updateEmployee Success")
-//    void updateEmployee() {
-//    }
+    @Test
+    @DisplayName("Test updateEmployee Success")
+    void updateEmployee() {
+        EmployeeEntity employeeEntity = new EmployeeEntity(1L, "David", "Anderson", "test@email.com");
+
+//        Optional<EmployeeEntity> optional = employeeRepo.findById(id);
+//        EmployeeEntity employeeEntity = null;
+//        if (optional.isPresent()) {
+//            employeeEntity = optional.get();
+//        } else {
+//            throw new ResourceNotFoundException("Employee with id: " + id + " not found...");
+//        }
+//        return employeeEntity;
+    }
 //
 //    @Test
 //    @DisplayName("Test deleteEmployeeById Success")
