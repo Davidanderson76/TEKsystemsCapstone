@@ -6,6 +6,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+// makes sure that all emails are unique
 public class UserEntity {
 
     @Id
