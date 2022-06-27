@@ -58,6 +58,10 @@ Java, HTML, JS, CSS, Spring Boot, Spring Security
 
 ### Tables Layout
 
+<img width="152" alt="tables" src="https://user-images.githubusercontent.com/42220778/175970183-01369e6b-99b3-4be5-9fd9-1c6e8f726b49.png">
+
+
+
 <br><img width="488" alt="cmsTables" src="https://user-images.githubusercontent.com/42220778/173092504-856d7496-ced5-49bf-b5e1-e9896a4e9a97.png">
 
 ## Testing
